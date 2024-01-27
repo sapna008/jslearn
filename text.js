@@ -14,7 +14,7 @@ function handleSearch(e) {
 async function getDataFromServer(searchTerm){
     const accessKey = "zJZpaSiFHK_sHSkgHEGEEgDpITxgptSekbLygp4huzc"
     try {
-        if(searchTerm !== undefined && searchTerm.length > 3){
+        if(searchTerm !== undefined && searchTerm.length >= 3){
             const url = `https://api.unsplash.com/search/photos?page=${page}&query=${searchTerm}&client_id=${accessKey}`;
             const response = await fetch(url);
             const jsonData = await response.json();

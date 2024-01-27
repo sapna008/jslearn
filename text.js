@@ -14,7 +14,7 @@ function handleSearch(e) {
 async function getDataFromServer(searchTerm){
     const accessKey = "zJZpaSiFHK_sHSkgHEGEEgDpITxgptSekbLygp4huzc"
     try {
-        if(searchTerm !== undefined && searchTerm.length > 0){
+        if(searchTerm !== undefined && searchTerm.length > 3){
             const url = `https://api.unsplash.com/search/photos?page=${page}&query=${searchTerm}&client_id=${accessKey}`;
             const response = await fetch(url);
             const jsonData = await response.json();
@@ -25,7 +25,7 @@ async function getDataFromServer(searchTerm){
                 throw new Error('No More Data found found for : ' + searchTerm);
             }
         }else{
-            throw new Error('Kindly input some text');
+            throw new Error('Kindly input someThing at least 3 letter');
         }
     } catch (error) {
         console.log(error.message);
@@ -34,6 +34,7 @@ async function getDataFromServer(searchTerm){
 }
 function displayData(data){
     console.log('data received in display method ',data);
+    hideErrorMsg();
     const searchResults = document.querySelector(".search-results")
     searchResults.innerHTML ='';
     data.map((result) => {
@@ -60,4 +61,7 @@ function showErrorMsg(msg){
     <div class="alert alert-danger" role="alert">${msg}</div>`;
     const alertBox = document.getElementById('alertBox');
     alertBox.innerHTML = errorElement;
+}
+function hideErrorMsg(){
+    document.getElementById('alertBox').innerHTML = '';
 }

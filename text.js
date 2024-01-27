@@ -1,1 +1,10 @@
-console.log('test');
+var allPrducts = [];
+getData();
+function getData(){
+    fetch('https://dummyjson.com/products')
+    .then(res => res.json())
+    .then((data)=>{
+        // console.log(data.products);
+        allPrducts = data.products;
+    });
+}

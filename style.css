@@ -10,7 +10,7 @@
 .search-result {
     margin-bottom: 60px;
     width: 30%;
-    height: 100%;
+    height: 17rem;
     border-radius: 5px;
     box-shadow: 0 0 6px rgba(0, 0, 0, 8.2);
     overflow: hidden;
@@ -18,7 +18,7 @@
 
 .search-result img {
     width: 100%;
-    height: 100%;
+    height: 71%;
     object-fit: cover;
     transition: opacity 0.2s ease-in-out;
 }
@@ -50,17 +50,19 @@
     /* display: none; */
 }
 
-@media screen and(max-width:760px) {
+@media screen and (max-width: 760px) {
     .search-results {
-        padding: 20px;
+        padding: 5%;
     }
     .search-result {
+        background-color: lightgreen;
         width: 45%;
     }
 }
 
-@media screen and(max-width:480px) {
+@media screen and (max-width: 480px) {
     .search-result {
+        background-color: lightgreen;
         width: 100%;
     }
 }

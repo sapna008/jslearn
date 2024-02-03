@@ -32,3 +32,8 @@ button {
 .form-label {
     color: aliceblue;
 }
+
+.fn {
+    display: inline-block;
+    ;
+}

@@ -16,7 +16,7 @@ body {
 }
 
 .content_boxes {
-    border: 1px solid rgb(250, 252, 251);
+    /* border: 1px solid rgb(250, 252, 251); */
     margin-top: 1rem;
     min-height: 2rem;
 }
@@ -30,9 +30,13 @@ button {
 }
 
 .form-label {
-    color: aliceblue;
+    color: black;
+
 }
 
+<<<<<<< HEAD
 .fn {
     display: inline-block;
 }
+=======
+>>>>>>> fcddc61e2048a60899f17a935a9cee9bbd6b1726

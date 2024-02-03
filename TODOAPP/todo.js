@@ -49,13 +49,30 @@ var data = [
       },
       
 ];
-function addData(e){
-    // to get input data from input box and add to global variable data
+function AddUser() {
+    // Create an object to store form data
+    var userData = {};
 
+    // Get form data and populate the object
+    userData.username = document.getElementById("username").value;
+    userData.firstName = document.getElementById("firstName").value;
+    userData.lastName = document.getElementById("lastName").value;
+    userData.age = document.getElementById("age").value;
+    
+    // Get gender value
+    var gender = document.querySelector('input[name="gender"]:checked');
+    userData.gender = gender ? gender.value : null;
 
+    userData.phoneNumber = document.getElementById("phoneNumber").value;
+    userData.birthday = document.getElementById("birthday").value;
+    userData.location = document.getElementById("location").value;
+    userData.email = document.getElementById("email").value;
 
-    //call display function to display all added data.
+    // Log or perform actions with the form data object
+    console.log("User Data:", userData);
+
 }
+
 
 function display(){
     // takes global data and itrate over it and then render to ui
@@ -78,7 +95,7 @@ function display(){
 
     //  write your logic here.
 
-    
+
 }
 
 function showErrorMsg(msg){

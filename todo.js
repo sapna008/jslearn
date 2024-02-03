@@ -1,46 +1,48 @@
-let data = [
+var data = [
     { id: 1, name: "sapna", email: "sapna@gmail.com" },
     { id: 2, name: "shilpi", email: "shilpi@gmail.com" }
 ]
 
 function readAll() {
-    localStorage.setItem('object', JSON.stringify(data));
-    var tabledata = document.querySelector(".data_table");
-    var object = localStorage.getItem('object');
-    var objectdata = JSON.parse(Object);
-    var elements = "";
+    const localData = localStorage.getItem('todoData');
+    data = JSON.parse(localData);
+    let allString = ''; 
+    for(let item of data){
+        allString +=  `<tr>
+        <td>${item.id}</td>
+        <td>${item.name}</td>
+        <td>${item.email}</td>
+         </tr>`
+    }
+    document.getElementById('tableBody').innerHTML = allString;
 
-    objectdata.map(record => (
-        elements += `<tr>
-        <td>${record.name}</td>
-        <td>${record.email}</td>
-        <td>
-        <button class="edit" onclick={edit(${record.id})}>Edit</button>
-        <button class="delete">Delete</button>
-        </td>
-        </tr>`
-    ))
-    tabledata.innerHTML = elements;
+
 }
-
+function refreshData(){
+    readAll();
+}
 function create() {
-
-    document.querySelector(".create_form").style.display = "block";
-    document.querySelector(".add_div").style.display = "none";
-
+    console.log('addddd')
+    const name = document.getElementById('addName').value; 
+    const email = document.getElementById('addEmail').value; 
+    console.log(name);
+    console.log(email);
+    const arrLength = data.length + 1;
+    data.push( { id: arrLength, name: name, email: email })
+    localStorage.setItem('todoData',JSON.stringify(data));
 }
 
 function add() {
+   
+    // var name = document.querySelector(".name").value;
+    // var email = document.querySelector(".email").value;
 
-    var name = document.querySelector(".name").value;
-    var email = document.querySelector(".email").value;
+    // var newObj = { id: 3, name: name, email: email };
+    // data.push(newObj);
 
-    var newObj = { id: 3, name: name, email: email };
-    data.push(newObj);
-
-    document.querySelector(".create_form").style.display = "none";
-    document.querySelector(".add_div").style.display = "block";
-    readAll();
+    // document.querySelector(".create_form").style.display = "none";
+    // document.querySelector(".add_div").style.display = "block";
+    // readAll();
 }
 
 function edit(id) {

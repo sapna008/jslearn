@@ -17,16 +17,87 @@
         there should be at least
         1 input field
         1 checkbox -->
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label" >User Name</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Email</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
         
     </div>
 
 
     <!-- for data-table -->
-    <div class="container content_boxes">
+    <div class="container-fluid content_boxes">
         <!-- usefull links 
         https://getbootstrap.com/docs/5.0/content/tables/ 
         there should be action columns having two options in each row for delete and edit 
         intitaly put some static data. -->
+<div class="tab-content">
+    
+    <table class="table table-success table-striped">
+        <thead>
+          <tr>
+            <th scope="col">serial no.</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">DOB</th>
+            <th scope="col">location</th>
+            <th scope="col">Email</th>
+            <th scope="col">Operation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>sapna</td>
+            <td>sarkar</td>
+            <td>23</td>
+            <td>Female</td>
+            <td>71804673</td>
+            <td>23/12/2000</td>
+            <td>Dehradun</td>
+            <td>sap@gmail.com</td>
+            <td><button class="btn btn-primary">edit</button > &nbsp; <button class="btn btn-primary">delete</button></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>shiva</td>
+            <td>shambhu</td>
+            <td>25</td>
+            <td>Male</td>
+            <td>71804673</td>
+            <td>07/12/1989</td>
+            <td>Dehradun</td>
+            <td>shiva@gmail.com</td>
+            <td><button class="btn btn-primary">edit</button> &nbsp; <button class="btn btn-primary">delete</button></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>shankar</td>
+            <td>shiv</td>
+            <td>28</td>
+            <td>Male</td>
+            <td>71804673</td>
+            <td>25/10/1989</td>
+            <td>Dehradun</td>
+            <td>shankar@gmail.com</td>
+            <td><button class="btn btn-primary">edit</button>&nbsp; <button class="btn btn-primary">delete</button></td>
+          </tr>
+         
+        </tbody>
+      </table>
+</div>
 
 
     </div>

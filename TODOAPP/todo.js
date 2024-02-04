@@ -74,7 +74,7 @@ function display() {
         t1.innerText = item.firstName
         row.appendChild(t1)
 
-        const t2 = document.createElement("td")
+        const t2 = document.createElement("td")//
         t2.innerText = item.lastName
         row.appendChild(t2)
         const t3 = document.createElement("td")

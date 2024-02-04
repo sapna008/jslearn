@@ -168,7 +168,7 @@ function Edit() {
 
 
 function dele(e) {
-    const dataid = e.data - id
+    const dataid = e.target.dataset.id;
     console.log(dataid)
     let tempArray = []
     data.forEach(function(item) {

@@ -27,6 +27,7 @@ function AddUser() {
     console.log("User Data:", userData);
     data.push(userData)
     console.log(" Data:", data);
+    saveToLocalStorage(data);
     display()
 
 }
@@ -52,6 +53,11 @@ function display() {
     //     searchResults.appendChild(imageWrapper);
 
     //  write your logic here.
+    data = (getFromLocalStorage()== null)? data:getFromLocalStorage();
+    if(data == undefined && data == null){
+        return;
+    }
+    
     let tbody = document.getElementById('tableBody')
     tbody.innerHTML = ''
     let index = 1;
@@ -168,7 +174,8 @@ function Edit() {
 
 
 function dele(e) {
-    const dataid = e.data - id
+    console.log(e);
+    const dataid = e.target.dataset.id;
     console.log(dataid)
     let tempArray = []
     data.forEach(function(item) {
@@ -179,4 +186,29 @@ function dele(e) {
         data = tempArray
         display()
     })
+}
+
+function saveToLocalStorage(data){
+    try {
+        const jsonString = JSON.stringify(data);
+        localStorage.setItem('userData', jsonString);
+        console.log('Data saved to local storage successfully.');
+    } catch (error) {
+        console.error('Error saving data to local storage:', error);
+    }
+}
+function getFromLocalStorage() {
+    try {
+        // Retrieve the JSON-formatted string from local storage
+        const jsonString = localStorage.getItem('userData');
+
+        // Parse the JSON string to convert it back to a JavaScript object
+        const data = JSON.parse(jsonString);
+
+        console.log('Data retrieved from local storage successfully.');
+        return data;
+    } catch (error) {
+        console.error('Error retrieving data from local storage:', error);
+        return null;
+    }
 }

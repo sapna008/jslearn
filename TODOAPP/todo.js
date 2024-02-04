@@ -93,12 +93,23 @@ function display() {
         const t9 = document.createElement("td")
         const edit = document.createElement("button")
         const delet = document.createElement("button")
-        delet.classList.add("btn", "btn-primary");
-        edit.classList.add("btn", "btn-primary");
-        edit.innerHTML = "edit &nbsp;"
+        delet.setAttribute("type", "button");
+        edit.classList.add('btn', 'btn-primary');
+        edit.setAttribute("data-bs-toggle", "modal");
+        edit.setAttribute("name", item.email);
+        edit.setAttribute("data-bs-target", "#staticBackdrop");
+        edit.setAttribute("onclick", "Edit()");
+        edit.inner
+        edit.innerHTML = "edit"
 
         delet.innerText = "delete"
         t9.appendChild(edit)
+        edit.setAttribute("id", "userSignUpForm");
+        edit.setAttribute("action", "javascript:void(0)");
+        //edit.setAttribute("onclick", "AddUser()");
+        delet.setAttribute("data-id", item.email)
+        delet.addEventListener('click', dele)
+
         t9.appendChild(delet)
         row.appendChild(t9)
 
@@ -119,4 +130,53 @@ function showErrorMsg(msg) {
 
 function showSuccessMsg(msg) {
     // method to display to show success msg on ui
+}
+
+function validateform() {
+    let name = document.getElementById("firstName").value;
+    let lname = document.getElementById("lastName").value;
+    let age = document.getElementById("age").value;
+    let phone = document.getElementById("phoneNumber").value;
+
+
+    if (name == null || name == "" || typeof(name) === "number") {
+        alert("Name can't be blank");
+        return false;
+    } else if ((lname == null || lname == "" || typeof(name) === "number")) {
+        alert("last name can't be blank");
+        return false;
+        // } else if (typeof age !== "number") {
+        //     alert("Please enter correct age");
+        //     return false;
+
+    } else if (phone.length == 10) {
+        alert("Phone number must be at 10 characters long.");
+        return false;
+    }
+}
+
+function Edit() {
+    tn = document.getElementById("staticBackdropLabel")
+    tk = document.getElementById("sappy")
+    tn.innerText = "Edit user details"
+    tk.innerText = "Edit"
+
+
+
+
+}
+
+
+function dele(e) {
+    const dataid = e.data - id
+    console.log(dataid)
+    let tempArray = []
+    data.forEach(function(item) {
+        if (item.email != dataid) {
+            tempArray.push(item)
+        }
+
+        data = tempArray
+        display()
+    })
 }
